@@ -1,0 +1,122 @@
+/* ===== 댄스 바운스 (위아래 점프) ===== */
+@keyframes dance-bounce {
+  0%, 100% { transform: translateY(0) scaleX(1); }
+  25%       { transform: translateY(-30px) scaleX(1.05) rotate(-5deg); }
+  50%       { transform: translateY(-10px) scaleX(0.95); }
+  75%       { transform: translateY(-25px) scaleX(1.05) rotate(5deg); }
+}
+
+/* ===== 몸통 흔들기 ===== */
+@keyframes body-swing {
+  0%, 100% { transform: rotate(-8deg) scaleY(1); }
+  25%       { transform: rotate(8deg) scaleY(1.05); }
+  50%       { transform: rotate(-5deg) scaleY(0.97); }
+  75%       { transform: rotate(10deg) scaleY(1.05); }
+}
+
+/* ===== 그림자 ===== */
+@keyframes shadow-pulse {
+  0%, 100% { transform: scaleX(1); opacity: 0.3; }
+  25%       { transform: scaleX(0.7); opacity: 0.15; }
+  50%       { transform: scaleX(0.85); opacity: 0.2; }
+  75%       { transform: scaleX(0.75); opacity: 0.15; }
+}
+
+/* ===== 음표 둥실 ===== */
+@keyframes note-float {
+  0%   { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 0.8; }
+  100% { transform: translateY(-120px) translateX(30px) rotate(20deg); opacity: 0; }
+}
+
+@keyframes note-float-left {
+  0%   { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 0.8; }
+  100% { transform: translateY(-100px) translateX(-40px) rotate(-15deg); opacity: 0; }
+}
+
+/* ===== 디스코 조명 ===== */
+@keyframes disco-rotate {
+  0%   { transform: rotate(0deg) scale(1); opacity: 0.6; }
+  50%  { transform: rotate(180deg) scale(1.3); opacity: 0.9; }
+  100% { transform: rotate(360deg) scale(1); opacity: 0.6; }
+}
+
+/* ===== 배경 그라데이션 펄스 ===== */
+@keyframes bg-pulse {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+/* ===== 타이틀 흔들기 ===== */
+@keyframes title-shake {
+  0%, 100% { transform: rotate(-2deg); }
+  50%       { transform: rotate(2deg); }
+}
+
+/* ===== 클래스 적용 ===== */
+.dance-bounce {
+  animation: dance-bounce 1.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.cat-swing {
+  animation: body-swing 1.5s ease-in-out infinite;
+  transform-origin: center bottom;
+  will-change: transform;
+}
+
+.cat-shadow {
+  width: 100px;
+  height: 18px;
+  background: radial-gradient(ellipse, rgba(0,0,0,0.4) 0%, transparent 70%);
+  border-radius: 50%;
+  margin: 4px auto 0;
+  animation: shadow-pulse 1.5s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.note {
+  position: absolute;
+  font-size: 1.8rem;
+  pointer-events: none;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+}
+.note-1 { bottom: 60%; left: 15%; color: #FF6B9D; animation-name: note-float; }
+.note-2 { bottom: 55%; right: 12%; color: #6BCB77; animation-name: note-float-left; }
+.note-3 { bottom: 65%; left: 60%; color: #FFD93D; animation-name: note-float; }
+.note-4 { bottom: 50%; right: 35%; color: #4D96FF; animation-name: note-float-left; }
+
+.disco-lights {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.light {
+  position: absolute;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  animation: disco-rotate linear infinite;
+  will-change: transform, opacity;
+}
+.light-1 {
+  width: 300px; height: 300px;
+  top: -100px; left: -80px;
+  background: radial-gradient(circle, rgba(255,107,157,0.25) 0%, transparent 70%);
+}
+.light-2 {
+  width: 250px; height: 250px;
+  top: -80px; right: -60px;
+  background: radial-gradient(circle, rgba(107,203,119,0.25) 0%, transparent 70%);
+}
+.light-3 {
+  width: 200px; height: 200px;
+  bottom: 20px; left: 50%;
+  transform-origin: center;
+  background: radial-gradient(circle, rgba(77,150,255,0.2) 0%, transparent 70%);
+}

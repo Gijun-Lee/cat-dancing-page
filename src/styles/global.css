@@ -1,0 +1,50 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-bg-start: #1a1a2e;
+  --color-bg-mid: #16213e;
+  --color-bg-end: #0f3460;
+  --color-accent: #e94560;
+  --color-text: #eee;
+  --color-card: rgba(255,255,255,0.07);
+  --border-radius: 24px;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: linear-gradient(135deg, var(--color-bg-start), var(--color-bg-mid), var(--color-bg-end));
+  background-size: 300% 300%;
+  animation: bg-pulse 8s ease infinite;
+  color: var(--color-text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+button:focus-visible {
+  outline: 3px solid #FFD93D;
+  outline-offset: 3px;
+}
